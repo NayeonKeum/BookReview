@@ -1,0 +1,155 @@
+CREATE TABLE User
+(`ID` int NOT NULL,
+`Name` varchar(30),
+`Password` varchar(50),
+PRIMARY KEY(`ID`));
+
+CREATE TABLE Admin
+(`ID` int NOT NULL,
+`Name` varchar(30),
+`Password` varchar(50),
+PRIMARY KEY(`ID`));
+
+
+CREATE TABLE Book
+(`Bnum` int auto_increment,
+`Author` varchar(50),
+`title` varchar(50),
+`Publisher` varchar(50),
+PRIMARY KEY(`Bnum`));
+
+CREATE TABLE Library
+(`Lnum` int auto_increment,
+`Name` varchar(30),
+`Location` varchar(50),
+PRIMARY KEY(`Lnum`));
+
+
+CREATE TABLE BookReport
+(`Pid` int auto_increment,
+`Uid` int NOT NULL,
+`Bnum` int NOT NULL,
+`date` DATE,
+`rating` int not null,
+`Remarks` varchar(1000),
+PRIMARY KEY(`Pid`),
+FOREIGN KEY(`Uid`) REFERENCES User(`ID`),
+FOREIGN KEY(`Bnum`) REFERENCES Book(`Bnum`)
+);
+
+
+CREATE TABLE bookreview.Read
+(`Rid` int auto_increment,
+`Uid` int NOT NULL,
+`Bnum` int NOT NULL,
+`date` DATE,
+PRIMARY KEY(`Rid`),
+FOREIGN KEY(`Uid`) REFERENCES User(`ID`),
+FOREIGN KEY(`Bnum`) REFERENCES Book(`Bnum`)
+);
+
+CREATE TABLE Posses
+(`Pnum` int auto_increment,
+`Lnum` int NOT NULL,
+`Bnum` int NOT NULL,
+PRIMARY KEY(`Pnum`),
+FOREIGN KEY(`Bnum`) REFERENCES Book(`Bnum`),
+FOREIGN KEY(`Lnum`) REFERENCES Library(`Lnum`)
+);
+
+
+
+예시 튜플
+INSERT INTO User values ('1','Nayeon','1111');
+INSERT INTO User values ('2','Joy','2222');
+INSERT INTO User values ('3','Huiseon','3333');
+INSERT INTO User values ('4','Seunghee','4444');
+INSERT INTO User values ('5','Seonyong','5555');
+INSERT INTO User values ('6','Yejin','6666');
+INSERT INTO User values ('7','Roxy','7777');
+INSERT INTO User values ('8','Kun','8888');
+INSERT INTO User values ('9','Ryanne','9999');
+INSERT INTO User values ('10','Mary','0000');
+
+
+INSERT INTO Admin values ('1','imadmin','1111');
+
+
+INSERT INTO Book values ('1', '윤인성','혼자 공부하는 파이썬', '한빛미디어');
+INSERT INTO Book values ('2','최원영', '비전공자를 위한 이해할 수 있는 IT지식', '티더블유아이지');
+INSERT INTO Book values ('3','서현우', '혼자 공부하는 C언어', '한빛미디어');
+INSERT INTO Book values ('4','제임스 위디', '괜찮지 않아도 괜찮아요', '시월이일');
+INSERT INTO Book values ('5','파리드 자카리아', '팬데믹 다음 세상을 위한 텐레슨', '민음사');
+INSERT INTO Book values ('6','로버트 C. 마틴', '클린 코드', '인사이트');
+INSERT INTO Book values ('7','로버트 C. 마틴', '클린 아키텍쳐', '인사이트');
+INSERT INTO Book values ('8','유꽃비', '프로일잘러', '알에이치코리아');
+INSERT INTO Book values ('9','김윤나', '리더의 말 그릇', '카시오페이아');
+INSERT INTO Book values ('10','론다 번', '위대한 시크릿', '알에이치코리아');
+
+
+INSERT INTO Library values ('1','양천도서관','서울시 양천구');
+INSERT INTO Library values ('2','관악도서관','서울시 관악구');
+INSERT INTO Library values ('3','강서도서관','서울시 강서구');
+INSERT INTO Library values ('4','은평도서관','서울시 은평구');
+INSERT INTO Library values ('5','목마도서관','서울시 양천구');
+INSERT INTO Library values ('6','화곡도서관','서울시 강서구');
+INSERT INTO Library values ('7','동작도서관','서울시 동작구');
+INSERT INTO Library values ('8','강남도서관','서울시 강남구');
+INSERT INTO Library values ('9','노원도서관','서울시 노원구');
+INSERT INTO Library values ('10','분당도서관','경기도 분당시');
+
+
+
+INSERT INTO BookReview.Read values ('1','1','1','2021-01-01');
+INSERT INTO BookReview.Read values ('2','1','2','2021-03-01');
+INSERT INTO BookReview.Read values ('3','1','4','2021-02-01');
+INSERT INTO BookReview.Read values ('4','1','5','2021-01-21');
+INSERT INTO BookReview.Read values ('5','3','1','2021-04-21');
+INSERT INTO BookReview.Read values ('6','3','6','2021-01-31');
+INSERT INTO BookReview.Read values ('7','4','2','2021-05-24');
+INSERT INTO BookReview.Read values ('8','4','4','2021-05-15');
+INSERT INTO BookReview.Read values ('9','5','6','2021-04-08');
+INSERT INTO BookReview.Read values ('10','5','7','2021-03-01');
+INSERT INTO BookReview.Read values ('11','5','8','2021-03-02');
+INSERT INTO BookReview.Read values ('12','5','9','2021-03-03');
+INSERT INTO BookReview.Read values ('13','5','10','2021-02-16');
+INSERT INTO BookReview.Read values ('14','6','3','2021-01-13');
+INSERT INTO BookReview.Read values ('15','7','7','2021-01-20');
+INSERT INTO BookReview.Read values ('16','8','3','2021-01-07');
+INSERT INTO BookReview.Read values ('17','9','3','2021-01-14');
+INSERT INTO BookReview.Read values ('18','10','1','2021-01-17');
+INSERT INTO BookReview.Read values ('19','10','2','2021-01-29');
+INSERT INTO BookReview.Read values ('20','10','3','2021-01-06');
+
+
+
+INSERT INTO BookReport values ('1','1','1','2021-02-01','5','너무 재미가 있었다.');
+INSERT INTO BookReport values ('2','1','2','2021-04-01','1','돈 주고 사기 아까움.');
+INSERT INTO BookReport values ('3','5','6','2021-05-08','2','글쎄,, 굳이 이걸 읽어야할까?');
+INSERT INTO BookReport values ('4','5','7','2021-04-01','3','그다지 흥미롭진 않았음.');
+INSERT INTO BookReport values ('5','5','8','2021-04-02','4','내 삶에 아주 큰 변화를 준 책');
+INSERT INTO BookReport values ('6','5','9','2021-04-03','5','정말 도움이 많이 됐어요~.');
+INSERT INTO BookReport values ('7','6','3','2021-02-13','3','내공냠냠');
+INSERT INTO BookReport values ('8','9','3','2021-02-14','4','너무 좋고 알찬 내용이어서 좋았습니다!');
+INSERT INTO BookReport values ('9','10','1','2021-02-17','2','읽다 잠.');
+INSERT INTO BookReport values ('10','10','2','2021-01-29','1','이런걸 책이라고 만들었냐구.');
+INSERT INTO BookReport values ('11','10','3','2021-03-06','5','대대로 물려주고 싶은 책.');
+
+
+INSERT INTO Posses values ('1','1','1');
+INSERT INTO Posses values ('2','1','2');
+INSERT INTO Posses values ('3','1','5');
+INSERT INTO Posses values ('4','1','6');
+INSERT INTO Posses values ('5','1','7');
+INSERT INTO Posses values ('6','1','8');
+INSERT INTO Posses values ('7','1','10');
+INSERT INTO Posses values ('8','2','1');
+INSERT INTO Posses values ('9','3','1');
+INSERT INTO Posses values ('10','4','1');
+INSERT INTO Posses values ('11','5','3');
+INSERT INTO Posses values ('12','6','6');
+INSERT INTO Posses values ('13','7','4');
+INSERT INTO Posses values ('14','8','8');
+
+
+
