@@ -1,0 +1,143 @@
+* {
+    font-family: 'Jua', sans-serif;
+};
+
+form{
+    display:inline
+}
+body{
+    background-color: #7030ff;
+}
+
+#jb-container {
+  width: 940px;
+  margin: 0px auto;
+  padding: 20px;
+  border: 1px solid #bcbcbc;
+  background-color: #fff;
+  color: #1d005e;
+}
+#jb-header {
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #bcbcbc;
+  background-color: #918bf7;
+}
+#jb-sidebar-left {
+  width: 160px;
+  padding: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  float: left;
+  border: 1px solid #bcbcbc;
+  background-color: #cfccff;
+}
+#jb-content {
+  width: 450px;
+  padding: 20px;
+  margin-bottom: 20px;
+  float: left;
+  border: 1px solid #bcbcbc;
+  background-color: #cfccff;
+}
+#jb-sidebar-right {
+  width: 160px;
+  padding: 20px;
+  margin-bottom: 20px;
+  float: right;
+  border: 1px solid #bcbcbc;
+  background-color: #cfccff;
+}
+#jb-footer {
+  clear: both;
+  padding: 20px;
+  border: 1px solid #bcbcbc;
+  background-color: #cfccff;
+}
+
+ol.mylist {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  max-width: 250px;
+  width: 100%;
+}
+ol.mylist li {
+  padding: 5px 0px 5px 5px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #efefef;
+  font-size: 12px;
+}
+ol.mylist li:last-child {
+    border-bottom: 0px;
+}
+ol.mylist li:before {
+    content: ">";
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0px 5px 6px 0px;
+}
+input.btn{
+    background:#4f00fa;
+    color:#fff;
+    border:none;
+    position:relative;
+    height:30px;
+    font-size:1.0em;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+  }
+  input.btn:hover{
+    background:#fff;
+    color:#8e59ff;
+  }
+  input.btnn:before,input.btn:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #8e59ff;
+    transition:400ms ease all;
+  }
+  input.btn:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+  input.btn:hover:before,input.btn:hover:after{
+    width:100%;
+    transition:800ms ease all;
+  }
+  table {
+    width:100%;
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin: 20px 10px;
+    background: #fdf3f5;
+  }
+  table thead th {
+    width: 150px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    color: #fff;
+    background: #7030ff;
+    margin: 20px 10px;
+  }
+  table tbody td {
+    width: 150px;
+    padding: 10px;
+  }
+  table td {
+    width: 350px;
+    padding: 10px;
+    vertical-align: top;
+  }
